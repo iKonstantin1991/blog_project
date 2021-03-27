@@ -13,11 +13,7 @@ def index(request):
     paginator = Paginator(latest, PER_PAGE)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
-    context = {
-        'page': page,
-        'paginator': paginator,
-    }
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', {'page': page})
 
 
 def group_post(request, slug):
@@ -29,7 +25,6 @@ def group_post(request, slug):
     context = {
         'group': group,
         'page': page,
-        'paginator': paginator,
     }
     return render(request, 'group.html', context)
 
