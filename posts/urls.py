@@ -6,7 +6,7 @@ app_name = 'posts'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path("follow/", views.follow_index, name="follow_index"),
+    path('follow/', views.follow_index, name='follow_index'),
     path('group/<slug:slug>/', views.group_post, name='group_posts'),
     path('new/', views.new_post, name='new_post'),
     path('<str:username>/', views.profile, name='profile'),
@@ -17,18 +17,18 @@ urlpatterns = [
         name='post_edit'
     ),
     path(
-        '<username>/<int:post_id>/comment',
+        '<str:username>/<int:post_id>/comment/',
         views.add_comment,
         name='add_comment'
     ),
     path(
-        "<str:username>/follow/",
+        '<str:username>/follow/',
         views.profile_follow,
-        name="profile_follow"
+        name='profile_follow'
     ),
     path(
-        "<str:username>/unfollow/",
+        '<str:username>/unfollow/',
         views.profile_unfollow,
-        name="profile_unfollow"
+        name='profile_unfollow'
     ),
 ]
