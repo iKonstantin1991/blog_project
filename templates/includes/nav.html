@@ -1,5 +1,6 @@
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="{% url 'posts:index' %}"><span style="color:red">Ya</span>tube</a>
+    <a class="p-2 text-dark" href="{% url 'posts:group_list' %}">Сообщества</a>
     <nav class="my-2 my-md-0 mr-md-3">
         {% if user.is_authenticated %}
         Пользователь: {{ user.username }}.

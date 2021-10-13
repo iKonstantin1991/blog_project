@@ -20,6 +20,7 @@
                     </div>
             </li>
     </ul>
+    {% if user.is_authenticated %}
     {% if user != author %}
     <li class="list-group-item">
         {% if following %}
@@ -34,5 +35,6 @@
         </a>
         {% endif %}
     </li>
+    {% endif %}
     {% endif %}
 </div>

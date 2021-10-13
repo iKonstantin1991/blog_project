@@ -9,16 +9,22 @@ from .models import Follow, Group, Post, User
 
 
 def index(request):
-    latest = Post.objects.select_related('group').all()
+    latest = (Post.objects.select_related('group')
+              .select_related('author').all())
     paginator = Paginator(latest, PER_PAGE)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
     return render(request, 'index.html', {'page': page})
 
 
+def group_list_view(request):
+    groups = Group.objects.all()
+    return render(request, 'group_list.html', {'groups': groups})
+
+
 def group_post(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = group.posts.all()
+    posts = group.posts.select_related('author').all()
     paginator = Paginator(posts, PER_PAGE)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)

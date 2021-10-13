@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Список групп{% endblock %}
+{% block header %}Список групп{% endblock %}
+{% block content %}
+{% load user_filters %}
+{% for group in groups %}
+    <div class="card mb-3 mt-1 shadow-sm">
+        <div class="card-body">
+                <p class="card-text">
+                        <a href="{% url 'posts:group_posts' slug=group.slug %}"><strong class="d-block text-gray-dark">{{ group.title }}</strong></a>
+                        {{ group.description|linebreaksbr }}
+                </p>
+        </div>
+    </div>
+    {% if not forloop.last %}<hr>{% endif %}
+    {% endfor %}
+
+{% endblock %}
