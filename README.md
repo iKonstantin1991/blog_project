@@ -7,9 +7,9 @@
 Python3, Django 2.2, PostgreSQL
 
 ## Команды для запуска приложения
-- Склонируйте репозиторий к себе на компьютер и разверните виртуальное окружение
+- Склонируйте репозиторий к себе на компьютер и разверните виртуальное окружение<br>
 ```python -m venv venv```
-- Затем установите зависимости
+- Затем установите зависимости<br>
 ```pip install -r requirements.txt```
 
 Для дальнейшей работы понадобиться PostgreSQL.
@@ -22,7 +22,7 @@ alter role <ваш username> set client_encoding to 'utf8';
 alter role <ваш username> set default_transaction_isolation to 'read committed';
 alter role <ваш username> set timezone to 'UTC';
 ```
-- Создаем базу проекта
+- Создаем базу проекта<br>
 ```create database <имя базы> owner <ваш username>;```
 
 Далее нужно выйти из консоли PostgreSQL
@@ -46,17 +46,18 @@ get_random_secret_key()
 ```
 Cкопировать полученный ключ в .env
 
-Выполняем миграции и собираем статику
-```python manage.py migrate```
+Выполняем миграции и собираем статику<br>
+```python manage.py migrate```<br>
 ```python manage.py collectstatic```
 
-## Команды для содания суперпользователя
-Для создание суперпользователя выполните команду из дирректории infra/:<br>
-```python manage.py createsuperuser```<br>
 
 ## Заполнение базы начальными данными
-Для заполнения базы начальными данными выполните команды из дирректории backend/.<br>
+Для заполнения базы начальными данными выполните команду.<br>
 ```python manage.py loaddata init_data.json```
+
+## Команда для содания суперпользователя
+Для создание суперпользователя выполните команду:<br>
+```python manage.py createsuperuser```<br>
 
 ## Основные возможности
 Регистрация и вход в учетную запись по имени пользователя и паролю.<br>
